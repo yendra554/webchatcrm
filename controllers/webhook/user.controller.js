@@ -166,7 +166,6 @@
 
 // }
 
-
 const saltRounds = 10;
 
 const axios = require('axios');
@@ -212,7 +211,7 @@ var getMeth=0;
     const Task1 = await userMenu.find({ perentMenu: data.message })
   
 if((Task1.length === 0)){
- 
+  console.log("data.message", data.message)
     const userData = await userMenu.find({ menuTitle: Task1.perentMenu })
    
     if((data.message != "Hi") && (userData.length === 0)){
@@ -229,7 +228,7 @@ if((Task1.length === 0)){
     }
     
     else{
-     
+        console.log("data.message", data.message)
             var obj2;
             var obj3;
             const Task = await userMenu.find({ perentMenu: "Menu" });
@@ -238,7 +237,7 @@ if((Task1.length === 0)){
                 let d = index + 1;
                 const dynamicKey = "list" + d
                 const myObj = {};
-
+                listData=listData+"&list"+index+"="+item.menuTitle
                 myObj[dynamicKey] = item.menuTitle;
                 menuData.push(myObj);
                 obj2 = menuData;
